@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TeleportationAnchor : MonoBehaviour
 {
-    //[SerializeField] private GameObject Player = GameObject.FindObjectOfType(Player);
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +13,9 @@ public class TeleportationAnchor : MonoBehaviour
 
     public void OnPointerClick()
     {
-        //Player.transform.position = new Vector3(0, 0, 0);
+        //transform.localPosition;
+        Debug.Log("You teleported :)");
+        GameObject.FindWithTag("Player").transform.position = transform.position + new Vector3(0, 1.6f, 0);
         Debug.Log("You teleported :)");
     }
 
