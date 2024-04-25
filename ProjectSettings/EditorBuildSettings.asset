@@ -11,8 +11,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/InternalAssets/Scenes/TestSceneLighting.unity
     guid: 0e1a2d5ae517fb6448dcde8baab9646c
-  - enabled: 1
+  - enabled: 0
     path: Assets/InternalAssets/Scenes/TestScene.unity
     guid: eb57d8b7d296b5a4b904b5cae0da934c
+  - enabled: 1
+    path: Assets/InternalAssets/Scenes/TestSceneLighting 1.unity
+    guid: 2748bfc020f6ee842bd35d6f1cd536dc
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ed96a7330ce06a24993e45d70ddbe02d, type: 2}
