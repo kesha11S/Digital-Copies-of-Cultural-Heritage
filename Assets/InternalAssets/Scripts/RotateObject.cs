@@ -3,26 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportationAnchor : MonoBehaviour
+public class RotateObject : MonoBehaviour
 {
     public Material GazedMaterial;
     public Material UngazedMaterial;
-  
-
+    public GameObject rotatingObject;
 
     //Проверяет, нажал ли пользователь на эту точку
     public void OnPointerClick() 
     {
-        //Перемещает пользователя (GameObject с тегом "Игрок") на позицию 
-        //точки телепортации плюс высота пользователя
-        GameObject.FindWithTag("Player").transform.position = transform.position + new Vector3(0, 1.6f, 0);
-        
-        //Выводит дебаг сообщение, что пользователь телепортировался
-        Debug.Log("You teleported :)");
+        rotatingObject.transform.Rotate(0.0f, 15.0f, 0.0f, Space.World);
     }
 
-
-    
     public void OnPointerEnter()
     {
         gameObject.GetComponent<MeshRenderer> ().material = GazedMaterial;
@@ -32,5 +24,4 @@ public class TeleportationAnchor : MonoBehaviour
     {
         gameObject.GetComponent<MeshRenderer> ().material = UngazedMaterial;
     }
-    
 }

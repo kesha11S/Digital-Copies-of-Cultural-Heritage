@@ -3,26 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportationAnchor : MonoBehaviour
+public class OpenDescription : MonoBehaviour
 {
     public Material GazedMaterial;
     public Material UngazedMaterial;
-  
-
+    public GameObject descText;
+    public GameObject descPlane;
 
     //Проверяет, нажал ли пользователь на эту точку
     public void OnPointerClick() 
     {
-        //Перемещает пользователя (GameObject с тегом "Игрок") на позицию 
-        //точки телепортации плюс высота пользователя
-        GameObject.FindWithTag("Player").transform.position = transform.position + new Vector3(0, 1.6f, 0);
+        if (descText.GetComponent<Renderer>().enabled == GetComponent<Renderer>().enabled) {
+            descText.GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
+            descPlane.GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
+        }
+        else {
+            descText.GetComponent<Renderer>().enabled = GetComponent<Renderer>().enabled;
+            descPlane.GetComponent<Renderer>().enabled = GetComponent<Renderer>().enabled;
+        }
         
-        //Выводит дебаг сообщение, что пользователь телепортировался
-        Debug.Log("You teleported :)");
     }
 
-
-    
     public void OnPointerEnter()
     {
         gameObject.GetComponent<MeshRenderer> ().material = GazedMaterial;
@@ -32,5 +33,4 @@ public class TeleportationAnchor : MonoBehaviour
     {
         gameObject.GetComponent<MeshRenderer> ().material = UngazedMaterial;
     }
-    
 }
