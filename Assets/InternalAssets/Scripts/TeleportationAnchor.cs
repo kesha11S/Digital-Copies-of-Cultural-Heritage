@@ -15,7 +15,7 @@ public class TeleportationAnchor : MonoBehaviour
     {
         //Перемещает пользователя (GameObject с тегом "Игрок") на позицию 
         //точки телепортации плюс высота пользователя
-        GameObject.FindWithTag("Player").transform.position = transform.position + new Vector3(0, 1.6f, 0);
+        GameObject.FindWithTag("Player").transform.position = transform.parent.transform.position + new Vector3(0, 1.6f, 0);
         
         //Выводит дебаг сообщение, что пользователь телепортировался
         Debug.Log("You teleported :)");
