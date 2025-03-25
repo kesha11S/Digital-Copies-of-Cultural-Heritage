@@ -9,8 +9,15 @@ public class OpenDescription : MonoBehaviour
     public Material UngazedMaterial;
     public GameObject descText;
     public GameObject descPlane;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     //Проверяет, нажал ли пользователь на эту точку
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void OnPointerClick() 
     {
         if (descText.GetComponent<Renderer>().enabled == GetComponent<Renderer>().enabled) {
@@ -21,7 +28,9 @@ public class OpenDescription : MonoBehaviour
             descText.GetComponent<Renderer>().enabled = GetComponent<Renderer>().enabled;
             descPlane.GetComponent<Renderer>().enabled = GetComponent<Renderer>().enabled;
         }
-        
+        audioSource.clip = audioClip;
+        audioSource.Play();
+
     }
 
     public void OnPointerEnter()
